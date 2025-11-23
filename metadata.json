@@ -1,0 +1,5 @@
+{
+  "name": "RegainFlow Sentinel",
+  "description": "An automated satellite telemetry anomaly detection dashboard featuring real-time monitoring, AI-driven analysis, and glassmorphic UI.",
+  "requestFramePermissions": []
+}
