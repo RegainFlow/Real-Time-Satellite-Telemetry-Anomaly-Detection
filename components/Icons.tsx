@@ -1,17 +1,21 @@
 import React from 'react';
-import { 
-  Activity, 
-  Cpu, 
-  Globe, 
-  AlertTriangle, 
-  CheckCircle, 
-  Zap, 
+import {
+  Activity,
+  Cpu,
+  Globe,
+  AlertTriangle,
+  CheckCircle,
+  Zap,
   Search,
   Menu,
   Bell,
   Radio,
   Thermometer,
-  MoreHorizontal
+  MoreHorizontal,
+  ChevronDown,
+  Rocket,
+  Compass,
+  Package
 } from 'lucide-react';
 
 export const Icons = {
@@ -27,4 +31,8 @@ export const Icons = {
   Radio: (props: any) => <Radio {...props} />,
   Temp: (props: any) => <Thermometer {...props} />,
   More: (props: any) => <MoreHorizontal {...props} />,
+  ChevronDown: (props: any) => <ChevronDown {...props} />,
+  Rocket: (props: any) => <Rocket {...props} />,
+  Compass: (props: any) => <Compass {...props} />,
+  Package: (props: any) => <Package {...props} />,
 };

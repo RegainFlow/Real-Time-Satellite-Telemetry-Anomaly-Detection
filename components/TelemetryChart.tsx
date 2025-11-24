@@ -33,46 +33,48 @@ export const TelemetryChart: React.FC<TelemetryChartProps> = ({ data }) => {
         >
           <defs>
             <linearGradient id="colorVolt" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#00d6cb" stopOpacity={0.3}/>
-              <stop offset="95%" stopColor="#00d6cb" stopOpacity={0}/>
+              <stop offset="5%" stopColor="#00d6cb" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#00d6cb" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="colorTemp" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#a855f7" stopOpacity={0.3}/>
-              <stop offset="95%" stopColor="#a855f7" stopOpacity={0}/>
+              <stop offset="5%" stopColor="#a855f7" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" vertical={false} />
-          <XAxis 
-            dataKey="timestamp" 
-            tick={{ fill: '#666', fontSize: 10, fontFamily: 'JetBrains Mono' }} 
+          <XAxis
+            dataKey="timestamp"
+            tick={{ fill: '#666', fontSize: 10, fontFamily: 'JetBrains Mono' }}
             axisLine={false}
             tickLine={false}
           />
-          <YAxis 
-            tick={{ fill: '#666', fontSize: 10, fontFamily: 'JetBrains Mono' }} 
+          <YAxis
+            tick={{ fill: '#666', fontSize: 10, fontFamily: 'JetBrains Mono' }}
             axisLine={false}
             tickLine={false}
             domain={['auto', 'auto']}
+            width={40}
+            tickFormatter={(value) => value.toFixed(0)}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Area 
-            type="monotone" 
-            dataKey="voltage" 
-            stroke="#00d6cb" 
+          <Area
+            type="monotone"
+            dataKey="voltage"
+            stroke="#00d6cb"
             strokeWidth={2}
-            fillOpacity={1} 
-            fill="url(#colorVolt)" 
+            fillOpacity={1}
+            fill="url(#colorVolt)"
           />
-          <Area 
-            type="monotone" 
-            dataKey="temperature" 
-            stroke="#a855f7" 
+          <Area
+            type="monotone"
+            dataKey="temperature"
+            stroke="#a855f7"
             strokeWidth={2}
-            fillOpacity={1} 
-            fill="url(#colorTemp)" 
+            fillOpacity={1}
+            fill="url(#colorTemp)"
           />
           {data.map((entry, index) => (
-             entry.isAnomaly && <ReferenceLine key={index} x={entry.timestamp} stroke="#ef4444" strokeDasharray="3 3" />
+            entry.isAnomaly && <ReferenceLine key={index} x={entry.timestamp} stroke="#ef4444" strokeDasharray="3 3" />
           ))}
         </AreaChart>
       </ResponsiveContainer>
